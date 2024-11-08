@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'Aplicacion',
 ]
 
 MIDDLEWARE = [
@@ -81,7 +82,8 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'Eva3_Videojuegos',
         'USER': 'root',
-        'PASSWORD': ''
+        'PASSWORD': '',
+        'PORT': '3307',
     }
 }
 
