@@ -8,11 +8,14 @@ class Plataforma(models.Model):
         ('Movil', 'Movil')
     ]
 
-    tipo = models.CharField(max_length=20, choices=TIPOS)
-    generacion = models.CharField(max_length=20)
+    tipo = models.CharField(max_length=200, choices=TIPOS)
+    generacion = models.CharField(max_length=200)
     almacenamiento = models.IntegerField()
-    fabricante = models.CharField(max_length=20)
-    precio = models.FloatField()
+    fabricante = models.CharField(max_length=200)
+    precio = models.FloatField(max_length=50)
+    
+def __str__(self):
+        return Plataforma
 
 class Juego(models.Model):
     nombre = models.CharField(max_length=50)
@@ -21,9 +24,15 @@ class Juego(models.Model):
     desarrolladora = models.CharField(max_length=100)
     precio = models.FloatField(validators=[MinValueValidator(0)])
 
+def __str__(self):
+        return Juego
+
 class Genero(models.Model):
     nombre = models.CharField(max_length=50)
     descripcion = models.CharField(max_length=500)
-    dificultad = models.CharField(max_length=30)
+    dificultad = models.CharField(max_length=100)
     tematica = models.CharField(max_length=100)
-    formato = models.CharField(max_length=50)
+    formato = models.CharField(max_length=20, choices=[('MULTIJUGADOR', 'Multijugador'), ('SOLO', 'Solo')])
+
+def __str__(self):
+        return Genero

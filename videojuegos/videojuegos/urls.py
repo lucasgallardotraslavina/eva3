@@ -20,4 +20,19 @@ from Aplicacion import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index),
+    path('plataformas/', views.listadoPlataforma),
+    path('agregarPlataforma/', views.agregarPlataforma),
+    path('eliminarPlataforma/<int:id>', views.eliminarPlataforma),
+    path('actualizarPlataforma/<int:id>', views.actualizarPlataforma),
+    
+    path('juegos/',views.listadoJuegos),
+    path('agregarJuego/',views.agregarJuego),
+    path('eliminarJuego/<int:id>/', views.eliminarJuego, name='eliminarJuego'),
+    path('actualizarJuego/<int:id>' , views.actualizarJuego, name='actualizarJuego'),
+
+    path('generos/', views.listadoGenero),
+    path('agregarGenero/', views.agregarGenero),
+    path('eliminarGenero/<int:id>', views.eliminarGenero),
+    path('actualizarGenero/<int:id>', views.actualizarGenero),
+
 ]
