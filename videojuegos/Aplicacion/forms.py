@@ -1,7 +1,15 @@
+# forms.py
+
 from django import forms
 from Aplicacion.models import Juego, Plataforma, Genero
 
 class FormJuego(forms.ModelForm):
+    generos = forms.ModelMultipleChoiceField(
+        queryset=Genero.objects.all(),
+        widget=forms.CheckboxSelectMultiple,
+        required=True
+    )
+    
     class Meta:
         model = Juego
         fields = '__all__'

@@ -1,20 +1,22 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Agregar Género</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body class="container mt-5">
-    <div class="alert alert-info display-1 text-center">LISTADO DE GENEROS</div>
+    <div class="alert alert-info text-center display-3 mb-4">Agregar Género</div>
+    <div class="card p-4 shadow-lg">
         <form method='post'>
             {{ form.as_p }}
             {% csrf_token %}
-            <input type="submit" value="AGREGAR GENEROS" class="btn btn-info">
+            <input type="submit" value="Agregar Género" class="btn btn-primary w-100">
         </form>
-    
-    <a href="../generos" class="btn btn-info mt-5">GENEROS</a>
+        <a href="../generos" class="btn btn-secondary w-100 mt-3">Volver a Géneros</a>
+    </div>
 </body>
 </html>

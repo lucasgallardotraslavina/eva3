@@ -83,7 +83,7 @@ DATABASES = {
         'NAME': 'Eva3_Videojuegos',
         'USER': 'root',
         'PASSWORD': '',
-        'PORT': '3307',
+        'PORT': '3306',
     }
 }
 
