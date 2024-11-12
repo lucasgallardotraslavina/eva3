@@ -4,21 +4,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <title>Listado de Plataformas</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body class="container mt-5">
-    <div class="alert alert-info display-1 text-center">LISTADO DE PLATAFORMAS</div>
+    <div class="alert alert-info text-center display-3 header-title">Listado de Plataformas</div>
     {% if plataformas %}
-    <table class="table table-striped table-inverse table-responsive">
-        <thead class="thead-inverse">
+    <table class="table table-striped table-hover table-bordered">
+        <thead class="table-dark">
             <tr>
                 <th>Tipo</th>
-                <th>Generacion</th>
-                <th>Almacenamiento</th>
+                <th>Generación</th>
+                <th>Almacenamiento (GB)</th>
                 <th>Fabricante</th>
-                <th>Precio</th>
+                <th>Precio ($)</th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
@@ -26,23 +30,30 @@
             <tr>
                 <td>{{ plataforma.tipo }}</td>
                 <td>{{ plataforma.generacion }}</td>
-                <td>{{ plataforma.almacenamiento }} GB</td>
+                <td>{{ plataforma.almacenamiento }}</td>
                 <td>{{ plataforma.fabricante }}</td>
-                <td>{{ plataforma.precio }} $</td>
-                <td><a href="/actualizarPlataforma/{{ plataforma.id }}" class="btn btn-success btn-sm" onclick="return confirm('¿Estás seguro de que deseas MODIFICAR esta plataforma?')";><i class="bibi-pencil">Modificar</i></a></td>
-                <td><a href="/eliminarPlataforma/{{ plataforma.id }}" class="btn btn-danger btn-sm" onclick="return confirm('¿Estás seguro de que deseas ELIMINAR esta plataforma?');"><i class="bibi-trash"></i>Eliminar</a></td>
-
+                <td>{{ plataforma.precio }}</td>
+                <td>
+                    <a href="/actualizarPlataforma/{{ plataforma.id }}" class="btn btn-outline-success btn-sm action-btn" onclick="return confirm('¿Estás seguro de que deseas MODIFICAR esta Plataforma?');">
+                        <i class="bi bi-pencil"></i> Modificar
+                    </a>
+                    <a href="/eliminarPlataforma/{{ plataforma.id }}" class="btn btn-outline-danger btn-sm action-btn" onclick="return confirm('¿Estás seguro de que deseas ELIMINAR esta Plataforma?');">
+                        <i class="bi bi-trash"></i> Eliminar
+                    </a>
+                </td>
             </tr>
             {% endfor %}
         </tbody>
     </table>
     {% else %}
-
-    <div class="alert alert-primary" role="alert">
-        <strong>no se encuentra plataformas en el sistema</strong>
+    <div class="alert alert-primary text-center mt-4" role="alert">
+        <strong>No se encuentran plataformas en el sistema</strong>
     </div>
     {% endif %}
-    <a href="../" class="btn btn-danger">VOLVER</a>
-    <a href="../agregarPlataforma" class="btn btn-info float-end">AGREGAR PLATAFORMAS</a>
+
+    <div class="d-flex justify-content-between mt-4">
+        <a href="../" class="btn btn-danger"><i class="bi bi-arrow-left-circle"></i> Volver</a>
+        <a href="../agregarPlataforma" class="btn btn-info"><i class="bi bi-plus-circle"></i> Agregar Plataforma</a>
+    </div>
 </body>
 </html>

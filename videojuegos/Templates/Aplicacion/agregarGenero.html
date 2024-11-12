@@ -9,14 +9,19 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body class="container mt-5">
-    <div class="alert alert-info text-center display-3 mb-4">Agregar Género</div>
-    <div class="card p-4 shadow-lg">
+
+    <div class="alert alert-info text-center display-3 header-title mb-4">Agregar Género</div>
+
+    <div class="card p-4 shadow-lg form-container">
         <form method='post'>
-            {{ form.as_p }}
             {% csrf_token %}
-            <input type="submit" value="Agregar Género" class="btn btn-primary w-100">
+            <div class="mb-3">
+                {{ form.as_p }}
+            </div>
+            <input type="submit" value="Agregar Género" class="btn btn-primary btn-submit w-100 mb-3">
         </form>
-        <a href="../generos" class="btn btn-secondary w-100 mt-3">Volver a Géneros</a>
+        <a href="../generos" class="btn btn-secondary btn-view w-100">Volver a Géneros</a>
     </div>
+
 </body>
 </html>

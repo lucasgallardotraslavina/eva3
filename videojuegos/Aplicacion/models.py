@@ -41,7 +41,7 @@ class Juego(models.Model):
     
 
     generos = models.ManyToManyField(Genero, related_name="juegos")
-    plataforma = models.ForeignKey(Plataforma, on_delete=models.CASCADE, related_name="juegos", null=True, blank=True)
+    plataformas = models.ManyToManyField(Plataforma, related_name="juegos")
 
     def __str__(self):
         return self.nombre
